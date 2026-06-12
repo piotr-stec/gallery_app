@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css")
+  body
+    header.p-3.bg-primary.text-white.text-center.shadow-sm
+      h1 Galeria zdjęć
+
+    .container-fluid
+      .row
+        .col-md-2.bg-light.min-vh-100.p-3.border-end
+          if loggedUser
+            p.mb-1.small Zalogowany jako:
+            p.fw-bold.mb-3 #{loggedUser}
+
+            ul.nav.flex-column.mb-3
+              li.nav-item
+                a.nav-link(href='/') Strona główna
+              li.nav-item
+                a.nav-link(href='/galleries') Galerie
+              li.nav-item
+                a.nav-link(href='/galleries/add') Dodaj galerię
+              li.nav-item
+                a.nav-link(href='/images/add') Dodaj obrazek
+
+            if loggedUser === 'admin'
+              hr
+              p.small.text-muted Panel admina
+              ul.nav.flex-column.mb-3
+                li.nav-item
+                  a.nav-link(href='/users') Lista użytkowników
+                li.nav-item
+                  a.nav-link(href='/users/add') Dodaj użytkownika
+
+            hr
+            a.btn.btn-outline-danger.w-100(href='/users/logout') Wyloguj się
+
+          else
+            p.text-muted Nie jesteś zalogowany.
+            a.btn.btn-primary.w-100(href='/users/login') Zaloguj się
+
+        .col-md-10.p-4
+          if messages
+            each msg in messages
+              div(class=`alert alert-${msgType || 'info'} alert-dismissible fade show` role="alert")
+                = msg
+                button.btn-close(type="button" data-bs-dismiss="alert" aria-label="Close")
+          block content
+
+    footer.bg-dark.text-white.text-center.py-2
+      p.mb-0.small Galeria zdjęć
+
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js")
