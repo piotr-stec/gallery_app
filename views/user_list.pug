@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .container.mt-4
+    .d-flex.justify-content-between.align-items-center.mb-4
+      h1.h3= title
+      a.btn.btn-primary(href='/users/add') + Dodaj użytkownika
+
+    if user_list && user_list.length > 0
+      .table-responsive
+        table.table.table-striped.table-hover
+          thead.table-dark
+            tr
+              th Imię
+              th Nazwisko
+              th Nazwa użytkownika
+              th Akcje
+          tbody
+            each user in user_list
+              tr
+                td= user.first_name
+                td= user.last_name
+                td= user.username
+                td
+                  if user.username !== 'admin'
+                    a.btn.btn-sm.btn-outline-danger(href=`/users/${user._id}/delete` onclick="return confirm('Czy na pewno chcesz usunąć tego użytkownika?')") Usuń
+                  else
+                    span.text-muted (Administrator)
+    else
+      .alert.alert-info
+        p.mb-0 Brak użytkowników do wyświetlenia.

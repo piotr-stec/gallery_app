@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .container.mt-4
+    .row
+      .col-md-8
+        h1.h3.mb-4= title
+        
+        form(method='POST')
+          .mb-3
+            label.form-label(for='first_name') Imię (First Name):
+            input#first_name.form-control(type='text', placeholder='min. 2 litery' name='first_name' required value=(undefined===user ? '' : user.first_name)) 
+          
+          .mb-3
+            label.form-label(for='last_name') Nazwisko (Last Name):
+            input#last_name.form-control(type='text', placeholder='min. 2 litery' name='last_name' required value=(undefined===user ? '' : user.last_name))
+          
+          .mb-3
+            label.form-label(for='username') Login (Username):
+            input#username.form-control(type='text', placeholder='min. 3 litery' name='username' required value=(undefined===user ? '' : user.username)) 
+          
+          .mb-3
+            label.form-label(for='password') Hasło początkowe (Password):
+            input#password.form-control(type='password', minlength="8" placeholder='min. 8 znaków' name='password' autocomplete='off' required) 
+          
+          button.btn.btn-primary.w-100.jwt-submit-btn(type='submit') Utwórz użytkownika 
+
