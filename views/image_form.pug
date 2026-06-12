@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .container.mt-4
+    h1.h3.mb-4= title
+    
+    form(method='POST')
+      div.mb-3
+        label.form-label(for='name') Nazwa zdjęcia:
+        input#name.form-control(type='text', name='name' required value=(undefined===image ? '' : image.name))
+      
+      div.mb-3
+        label.form-label(for='description') Opis zdjęcia:
+        textarea#description.form-control(name='description' rows="3") #{undefined===image ? '' : image.description}
+      
+      div.mb-3
+        label.form-label(for='gallery') Galeria:
+        select#gallery.form-select(name='gallery' required)
+          for gallery in galleries
+            option(value=gallery._id selected=(image && image.gallery.toString() === gallery._id.toString() ? 'selected' : false)) #{gallery.name}
+
+      button.btn.btn-primary.w-100(type='submit') Zapisz zmiany

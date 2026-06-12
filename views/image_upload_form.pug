@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .container.mt-4
+    .row
+      .col-md-6
+        .card.shadow-sm
+          .card-body
+            h1.card-title.h4.mb-4= title
+            
+            form(method='POST', enctype='multipart/form-data') 
+              .mb-3
+                label.form-label(for='gallery') Wybierz galerię:
+                select#gallery.form-select(name='gallery' required)
+                  option(value='') -- Wybierz jedną z Twoich galerii --
+                  for gallery in galleries
+                    option(value=gallery._id) #{gallery.name}
+              
+              .mb-3
+                label.form-label(for='name') Nazwa zdjęcia (opcjonalnie):
+                input#name.form-control(type='text', name='name' placeholder='Domyślnie nazwa pliku')
+
+              .mb-3
+                label.form-label(for='description') Opis zdjęcia:
+                textarea#description.form-control(name='description' rows="2" placeholder='Krótki opis zdjęcia')
+
+              .mb-3
+                label.form-label(for='file') Wybierz plik:
+                input#file.form-control(type='file', name='file', accept="image/*" required)
+              
+              button.btn.btn-primary.w-100(type='submit') Prześlij i dodaj do galerii

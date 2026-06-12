@@ -1,0 +1,58 @@
+extends layout
+
+block content
+  .container.mt-4
+    nav(aria-label="breadcrumb")
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href="/galleries") Galerie
+        li.breadcrumb-item
+          a(href=`/galleries/${image.gallery._id}`)= image.gallery.name
+        li.breadcrumb-item.active(aria-current="page")= image.name
+
+    .row
+      .col-lg-8.mx-auto
+        .card.shadow-sm
+          img.card-img-top.img-fluid(src=`/images/${image.path}` alt=image.name)
+          .card-body
+            .d-flex.justify-content-between.align-items-start
+              div
+                h1.h4.card-title= image.name
+                p.card-text= image.description
+                p.card-text
+                  small.text-muted Galeria: 
+                    a(href=`/galleries/${image.gallery._id}`)= image.gallery.name
+                  br
+                  small.text-muted Właściciel: #{image.gallery.owner ? image.gallery.owner.username : 'Nieznany'}
+              
+              if isAdmin || isOwner
+                .btn-group
+                  a.btn.btn-outline-primary(href=`/images/${image._id}/edit`) Edytuj
+                  a.btn.btn-outline-danger(href=`/images/${image._id}/delete` onclick="return confirm('Czy na pewno chcesz usunąć to zdjęcie?')") Usuń
+          
+          .card-footer.bg-transparent
+            a.btn.btn-secondary(href=`/galleries/${image.gallery._id}`) Powrót do galerii
+
+        hr.mt-5.mb-4
+        
+        h4.mb-4 Komentarze (#{comments.length})
+        
+        .card.shadow-sm.mb-4
+          .card-body
+            form(method='POST' action=`/images/${image._id}/comment`)
+              .mb-3
+                textarea.form-control(name='text' rows='3' placeholder='Napisz komentarz' required maxlength='1000')
+              button.btn.btn-primary.btn-sm.float-end(type='submit') Dodaj komentarz
+              .clearfix
+              
+        if comments && comments.length > 0
+          .list-group.shadow-sm
+            each comment in comments
+              .list-group-item.py-3
+                .d-flex.justify-content-between.align-items-center.mb-1
+                  strong.text-primary= comment.author.username
+                  small.text-muted= comment.createdAt.toLocaleString('pl-PL', {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute:'2-digit'})
+                p.mb-0= comment.text
+        else
+          .alert.alert-light.text-center
+            p.mb-0 Brak komentarzy.
