@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container.mt-4
+    h1.h3.mb-4= title
+    
+    form(method='POST')
+      div.mb-3
+        label.form-label(for='g_name') Nazwa galerii:
+        input#g_name.form-control(type='text', name='g_name' required placeholder='min. 2 litery' value=(undefined===gallery ? '' : (gallery.name || gallery.g_name)))
+      
+      div.mb-3
+        label.form-label(for='g_description') Opis galerii:
+        textarea#g_description.form-control(name='g_description' rows="3" placeholder='Dodaj krótki opis') #{undefined===gallery ? '' : (gallery.description || gallery.g_description)}
+      
+      if isAdmin
+        div.mb-3
+          label.form-label(for='g_user') Właściciel galerii (Opcja Admina):
+          select#g_user.form-select(name='g_user' required)
+            option(value='') -- Wybierz użytkownika z bazy --
+            for user in users
+              option(value=user._id selected=(gallery && gallery.owner && gallery.owner._id.toString() === user._id.toString() ? 'selected' : false)) #{user.first_name} #{user.last_name} (#{user.username})
+
+      button.btn.btn-success.w-100(type='submit') #{gallery ? 'Zapisz zmiany' : 'Utwórz galerię'}
+

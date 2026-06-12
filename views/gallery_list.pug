@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .container.mt-4
+    .d-flex.justify-content-between.align-items-center.mb-4
+      h1.h3= title
+      a.btn.btn-primary(href='/galleries/add') + Dodaj nową galerię
+
+    if galleries && galleries.length > 0
+      .row
+        each gallery in galleries
+          .col-md-4.mb-4
+            .card.h-100
+              .card-body
+                h5.card-title= gallery.name
+                p.card-text= gallery.description
+              .card-footer.text-muted
+                small Właściciel: #{gallery.owner ? gallery.owner.username : 'Nieznany'}
+                br
+                a.btn.btn-sm.btn-outline-primary.mt-2(href=`/galleries/${gallery._id}`) Zobacz galerię
+    else
+      .alert.alert-info
+        p.mb-0 Brak galerii do wyświetlenia. Bądź pierwszy i dodaj nową!

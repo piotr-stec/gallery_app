@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .container.mt-4
+    nav(aria-label="breadcrumb")
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href="/galleries") Galerie
+        li.breadcrumb-item.active(aria-current="page")= gallery.name
+
+    .header-section.mb-4
+      .d-flex.justify-content-between.align-items-start
+        div
+          h1.h3= gallery.name
+          p.lead= gallery.description
+          small.text-muted Właściciel: #{gallery.owner ? gallery.owner.username : 'Nieznany'}
+        
+        if isAdmin || isOwner
+          .btn-group
+            a.btn.btn-outline-primary(href=`/galleries/${gallery._id}/edit`) Edytuj 
+            a.btn.btn-outline-danger(href=`/galleries/${gallery._id}/delete` onclick="return confirm('Czy na pewno chcesz usunąć tę galerię?')")  Usuń
+
+    hr
+
+    if images && images.length > 0
+      .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4
+        each image in images
+          .col
+            .card.h-100.shadow-sm
+              a(href=`/images/${image._id}`)
+                img.card-img-top(src=`/images/${image.path}` alt=image.name style="height: 200px; object-fit: cover;")
+              .card-body
+                h5.card-title.h6= image.name
+                if image.description
+                  p.card-text.small.text-truncate= image.description
+              .card-footer.bg-transparent.border-top-0  
+                a.btn.btn-sm.btn-outline-secondary.w-100(href=`/images/${image._id}`) Szczegóły
+    else
+      .alert.alert-light.text-center.py-5
+        p.mb-3 Ta galeria jest jeszcze pusta.
+        a.btn.btn-primary(href='/images/add') Dodaj pierwsze zdjęcie
