@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "6a2be3c3a9d1250b8615bbb5"
+  },
+  "name": "Samochody",
+  "description": "Galeria samochodów",
+  "owner": {
+    "$oid": "6a2be01ba9d1250b8615bbb3"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2be436a9d1250b8615bbb9"
+  },
+  "name": "Krajobrazy",
+  "description": "Najlepsze krajobrazy",
+  "owner": {
+    "$oid": "6a2be3a2a9d1250b8615bbb4"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "6a2be470a9d1250b8615bbbc"
+  },
+  "text": "Super Auto",
+  "author": {
+    "$oid": "6a2be3a2a9d1250b8615bbb4"
+  },
+  "image": {
+    "$oid": "6a2be3e3a9d1250b8615bbb6"
+  },
+  "createdAt": {
+    "$date": "2026-06-12T10:50:24.064Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2be479a9d1250b8615bbbd"
+  },
+  "text": "Wygląda na szybki",
+  "author": {
+    "$oid": "6a2be3a2a9d1250b8615bbb4"
+  },
+  "image": {
+    "$oid": "6a2be411a9d1250b8615bbb8"
+  },
+  "createdAt": {
+    "$date": "2026-06-12T10:50:33.984Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2be48ba9d1250b8615bbbe"
+  },
+  "text": "Kolor jak ferrari",
+  "author": {
+    "$oid": "6a2be3a2a9d1250b8615bbb4"
+  },
+  "image": {
+    "$oid": "6a2be402a9d1250b8615bbb7"
+  },
+  "createdAt": {
+    "$date": "2026-06-12T10:50:51.278Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2be4b8a9d1250b8615bbbf"
+  },
+  "text": "Piękne tatry",
+  "author": {
+    "$oid": "6a2be01ba9d1250b8615bbb3"
+  },
+  "image": {
+    "$oid": "6a2be449a9d1250b8615bbba"
+  },
+  "createdAt": {
+    "$date": "2026-06-12T10:51:36.134Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2be4c6a9d1250b8615bbc0"
+  },
+  "text": "Co to za góry?",
+  "author": {
+    "$oid": "6a2be01ba9d1250b8615bbb3"
+  },
+  "image": {
+    "$oid": "6a2be457a9d1250b8615bbbb"
+  },
+  "createdAt": {
+    "$date": "2026-06-12T10:51:50.432Z"
+  },
+  "__v": 0
+}]

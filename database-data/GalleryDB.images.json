@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "6a2be3e3a9d1250b8615bbb6"
+  },
+  "name": "Bmw",
+  "description": "BMW m850i",
+  "path": "rwqml9j47862943nutv09cnz2.png",
+  "gallery": {
+    "$oid": "6a2be3c3a9d1250b8615bbb5"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2be402a9d1250b8615bbb7"
+  },
+  "name": "Toyota",
+  "description": "Toyota yaris",
+  "path": "ydko71hoa2xx4g1wjyeu72k0y.png",
+  "gallery": {
+    "$oid": "6a2be3c3a9d1250b8615bbb5"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2be411a9d1250b8615bbb8"
+  },
+  "name": "Saab",
+  "description": "Saab sedan",
+  "path": "as97pray5avdvfn20tbs5lzks.png",
+  "gallery": {
+    "$oid": "6a2be3c3a9d1250b8615bbb5"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2be449a9d1250b8615bbba"
+  },
+  "name": "Tatry",
+  "description": "Hala gąsienicowa",
+  "path": "pbi9o752k78650qltjzt12bfj.jpg",
+  "gallery": {
+    "$oid": "6a2be436a9d1250b8615bbb9"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a2be457a9d1250b8615bbbb"
+  },
+  "name": "Jezioro",
+  "description": "Jezioro w górach",
+  "path": "vuauhhp5v94c66wr3lbu0rbit.jpg",
+  "gallery": {
+    "$oid": "6a2be436a9d1250b8615bbb9"
+  },
+  "__v": 0
+}]
