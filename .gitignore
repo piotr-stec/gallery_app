@@ -30,7 +30,6 @@ build/
 
 # dotenv environment files
 .env
-.env.*
 
 # Editor directories and files
 .vscode/
