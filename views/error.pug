@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .alert.alert-warning.shadow-sm.p-4
+    h1.alert-heading.h3.mb-3= message
+    
+    if error && error.status
+      h2.h5.text-muted.mb-3 Kod błędu: #{error.status}
+    
+    hr
+        
+    .mt-3
+      a.btn.btn-primary.me-2(href='/') Strona główna
+      a.btn.btn-outline-primary(href='/users/login') Zaloguj się
+    
+    if error && error.stack
+      pre.mt-4.bg-dark.text-warning.p-3.rounded(style="font-size: 0.8rem; overflow-x: auto; font-family: monospace;") #{error.stack}
