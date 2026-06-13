@@ -28,7 +28,23 @@ Stwórz plik `.env` i skopiuj klucz `JWT_SECRET` z pliku `.env.example`
 npm start
 ```
 
+## Import Bazy Danych
+
+### Mongorestore
+Po uruchomieniu bazy danych na porcie 27017 wykonaj:
+
+```cmd
+mongorestore --uri="mongodb://localhost:27017" ./backup
+```
+
+## Eksport Bazy danych
+### Mongodump
+
+```cmd
+mongodump --uri="mongodb://localhost:27017" --out=./backup
+```
 ---
+## Import Bazy Danych z wykorzystaniem GUI
 
 ### Połącz się z bazą danych poprzez MongoDB Compass
 
